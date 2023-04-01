@@ -4,24 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="resetsheet" href="./Assets/css/reset.css">
-    <link rel="stylesheet1" href="./Assets/css/style1.css">
+    <link rel="stylesheet" href="./Assets/css/reset.css">
+    <link rel="stylesheet" href="./Assets/css/style1.css">
     <link rel="stylesheet" href="./Assets/css/style.css">
     
     <title>Code Quiz</title>
 </head>
 <body>
-    <div class="outter"> <!--what you see on the screen the main container-->
+<!--topbar-->
+    <div class="outer"> <!--what you see on the screen the main container-->
         <div class="top-bar"> <!--essentially your nav bar but not a nav bar-->
-
+            <a href="./highscores.html">View Highscores</a><!--look up best way to put button in here that takes you to the new page-->
+            <p>Timer: 00:00</p>
         </div>
-
+<!---main window--->
         <div class="inner"> <!--inner dic where everything moves-->
-            <header> <!-- first window-->
+
+            <header class="first-window"> <!-- first window-->
+
+                <h1>Coding Quiz Challenge</h1>
+
+                <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p>
+
+                <button>Start Quiz</button>
 
             </header>
-            <main><!--actual quiz pages-->
 
+            <main class="quiz"><!--actual quiz pages-->
+
+               <!--
+
+                <h2 class="questions">Which of the following are NOT JavaScript Data types?</h2>
+                    <button id="answers">1. String</button>
+                    <button id="answers">2. Boolean</button>
+                    <button id="answers">3. Class</button>
+                    <button id="answers">4. Object</button>
+                <h2 class="questions">Where should your script.js be inbedded into your HTML?</h2>
+                    <button id="answers">1. Head</button>
+                    <button id="answers">2. Footer</button>
+                    <button id="answers">3. Within a Div</button>
+                    <button id="answers">4. Within the Body</button>               
+                <h2 class="questions">Which symbol is used to comment in JavaScript?</h2>
+                    <button id="answers">1. // </button>
+                    <button id="answers">2. */ </button>
+                    <button id="answers">3. +/ </button>
+                    <button id="answers">4. ^/ </button>
+                <h2 class="questions">Which of the following can be used to call a JS Code Snippet?</h2>
+                    <button id="answers">1. Trigger Event</button>
+                    <button id="answers">2. Function/Method</button>
+                    <button id="answers">3. String</button>
+                    <button id="answers">4. ID</button>
+                <h2 class="questions">Question 5</h2>
+                    <button id="answers">1. </button>
+                    <button id="answers">2. </button>
+                    <button id="answers">3. </button>
+                    <button id="answers">4. </button>
+                <h2 class="questions">Which of the following is the property that is triggered in response to JS error?</h2>
+                    <button id="answers">1. onexception</button>
+                    <button id="answers">2. onmessage</button>
+                    <button id="answers">3. onerror</button>
+                    <button id="answers">4. onclick</button> -->
             </main>
         </div>
     </div>

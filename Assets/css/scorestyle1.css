@@ -9,15 +9,6 @@
     --darkpurple: rgb(107, 0, 128);
 
 }
-body {
-    background-color: white; /*so you can see each container take off after your done*/
-    overflow: hidden;
-}
-
-p {
-    color: var(--darkpurple);
-    font-size: 1em;
-}
 button {
     outline: none;
     background-color: white;

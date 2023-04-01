@@ -1,0 +1,55 @@
+.outer {
+    padding: 10px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+/*-------------*/
+/*----view high scores section-----------*/
+/*-------------*/
+
+/*-------------*/
+/*-------timer section------------*/
+/*-------------*/
+.top-bar p {
+    float: right;
+}
+/*---------inner container--------*/
+.inner {
+    width: 50%;
+    margin: auto;
+    background-color: white; /*take away when done*/
+    height: 100vh;
+    padding-top: 10%; 
+}
+/*------------------header 1st page-------------*/
+.first-window {
+    text-align: center;
+}
+h1, h2{
+    color: black;
+    font-size: xx-large;
+    padding: 5px;
+}
+.first-window p{
+    color: black;
+    font-size: large;
+    padding: 5px;
+}
+.first-window button {
+    background-color: var(--darkpurple);
+    color: white;
+    font-size: large;
+    padding: 5px;
+}
+
+/*---------------Main quiz content-------------*/
+.quiz {
+    display: flex;
+    flex-direction: column;
+}
+.quiz button {
+
+}
