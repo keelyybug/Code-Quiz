@@ -9,7 +9,13 @@
 /*-------------*/
 /*----view high scores section-----------*/
 /*-------------*/
-
+#view {
+    text-decoration: none;
+    color: var(--darkpurple);
+}
+#view:hover {
+    cursor: pointer;
+}
 /*-------------*/
 /*-------timer section------------*/
 /*-------------*/
@@ -44,12 +50,23 @@ h1, h2{
     font-size: large;
     padding: 5px;
 }
+#start:hover {
+    cursor: pointer;
+}
 
 /*---------------Main quiz content-------------*/
 .quiz {
     display: flex;
     flex-direction: column;
 }
-.quiz button {
+#answers {
+    padding: 2px;
+    background-color: var(--darkpurple);
+    color: white;
+    border-radius: 5px;
+}
 
+#answers:hover {
+    cursor: pointer;
+    filter:brightness(5.00); /*look into later*/
 }
