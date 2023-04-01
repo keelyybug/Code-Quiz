@@ -6,6 +6,7 @@
     justify-content: start;
 }
 
+
 /*-------------*/
 /*----view high scores section-----------*/
 /*-------------*/
@@ -31,10 +32,10 @@
     padding-top: 10%; 
 }
 /*------------------header 1st page-------------*/
-.first-window {
+.first-window, .quiz {
     text-align: center;
 }
-h1, h2{
+h1 {
     color: black;
     font-size: xx-large;
     padding: 5px;
@@ -55,17 +56,28 @@ h1, h2{
 }
 
 /*---------------Main quiz content-------------*/
+h2{
+    color: black;
+    font-size: x-large;
+    padding: 5px;
+    text-align: left;
+}
 .quiz {
     display: flex;
     flex-direction: column;
+    align-content: left;
 }
 #answers {
-    padding: 2px;
+    padding: 4px;
     background-color: var(--darkpurple);
     color: white;
     border-radius: 5px;
+    border: 2px solid white;
 }
-
+ul{
+    list-style-type: none;
+    text-align: left;
+}
 #answers:hover {
     cursor: pointer;
     filter:brightness(5.00); /*look into later*/
