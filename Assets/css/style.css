@@ -5,8 +5,9 @@
     flex-direction: column;
     justify-content: start;
 }
-
-
+.top-bar {
+    padding: 8px;
+}
 /*-------------*/
 /*----view high scores section-----------*/
 /*-------------*/
@@ -32,6 +33,7 @@
     padding-top: 10%; 
 }
 /*------------------header 1st page-------------*/
+
 .first-window, .quiz {
     text-align: center;
 }
@@ -50,9 +52,11 @@ h1 {
     color: white;
     font-size: large;
     padding: 5px;
+    border-radius: 5px;
 }
 #start:hover {
     cursor: pointer;
+    opacity: 0.4;
 }
 
 /*---------------Main quiz content-------------*/
@@ -66,8 +70,9 @@ h2{
     display: flex;
     flex-direction: column;
     align-content: left;
+    display: none;
 }
-#answers {
+.btn {
     padding: 4px;
     background-color: var(--darkpurple);
     color: white;
@@ -78,7 +83,7 @@ ul{
     list-style-type: none;
     text-align: left;
 }
-#answers:hover {
+.btn:hover{
     cursor: pointer;
-    filter:brightness(5.00); /*look into later*/
+    opacity: 0.4;
 }

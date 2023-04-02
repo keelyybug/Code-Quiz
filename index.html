@@ -15,7 +15,7 @@
     <div class="outer"> <!--what you see on the screen the main container-->
         <div class="top-bar"> <!--essentially your nav bar but not a nav bar-->
             <a id="view" href="./highscores.html">View Highscores</a><!--look up best way to put button in here that takes you to the new page-->
-            <p>Timer: 00:00</p>
+            <p id="timer">Timer: 00:00</p>
         </div>
 <!---main window--->
         <div class="inner"> <!--inner dic where everything moves-->
@@ -32,47 +32,12 @@
 
             <main class="quiz"><!--actual quiz pages-->
             <section>
-                <h2 class="questions">Which of the following are NOT JavaScript Data types?</h2>
-                    <ul>
-                    <li><button id="answers">1. String</button></li>
+                <h2 id="questions">Which of the following are NOT JavaScript Data types?</h2>
+                    <ul class="answer-btns">
+                    <li><button id="answer">1. String</button></li>
                     <li><button id="answers">2. Boolean</button></li>
                     <li><button id="answers">3. Class</button></li>
                     <li><button id="answers">4. Object</button></li>
-                    </ul>
-                <h2 class="questions">Where should your script.js be inbedded into your HTML?</h2>
-                    <ul>
-                    <li><button id="answers">1. Head</button></li>
-                    <li><button id="answers">2. Footer</button></li>
-                    <li><button id="answers">3. Within a Div</button></li>
-                    <li><button id="answers">4. Within the Body</button></li>
-                    </ul>              
-                <h2 class="questions">Which symbol is used to comment in JavaScript?</h2>
-                    <ul>
-                    <li><button id="answers">1. // </button></li>
-                    <li><button id="answers">2. */ </button></li>
-                    <li><button id="answers">3. +/ </button></li>
-                    <li><button id="answers">4. ^/ </button></li>
-                    </ul>
-                <h2 class="questions">Which of the following can be used to call a JS Code Snippet?</h2>
-                    <ul>
-                    <li><button id="answers">1. Trigger Event</button></li>
-                    <li><button id="answers">2. Function/Method</button></li>
-                    <li><button id="answers">3. String</button></li>
-                    <li><button id="answers">4. ID</button></li>
-                    </ul>
-                <h2 class="questions">What is the window object in JavaScript</h2>
-                    <ul>
-                    <li><button id="answers">1. The document root element object</button></li>
-                    <li><button id="answers">2. A frame around the root element object</button></li>
-                    <li><button id="answers">3. An interface to the browser window that holds global variables</button></li>
-                    <li><button id="answers">4. The browsers pop up</button></li>
-                    </ul>
-                <h2 class="questions">Which of the following is the property that is triggered in response to JS error?</h2>
-                    <ul>
-                    <li><button id="answers">1. onexception</button></li>
-                    <li><button id="answers">2. onmessage</button></li>
-                    <li><button id="answers">3. onerror</button></li>
-                    <li><button id="answers">4. onclick</button></li> 
                     </ul>
                 </section>
             </main>
