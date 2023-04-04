@@ -82,12 +82,10 @@ ul{
 
 .correct {
     font-size: medium;
-    color: lightslategray;
-    border-top: 3px solid lightslategray;
+    color: green;
 }
 
 .wrong {
     font-size: medium;
-    color: lightslategray;
-    border-top: 3px solid lightslategray;
+    color: red;
 }

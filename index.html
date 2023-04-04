@@ -29,16 +29,23 @@
                 <button id="start">Start Quiz</button>
 
             </header>
-
             <main class="container" ><!--actual quiz pages-->
             <section id="question-container" class="hide">
                 <h2 id="questions">questions</h2>
-                    <ul id="answer-btns" class="btn-grid">
-                    <li><button class="answers">answer 1</button></li>
-                    <li><button class="answers">answer 2</button></li>
-                    <li><button class="answers">answer 3</button></li>
-                    <li><button class="answers">answer 4</button></li>
-                    </ul>
+                <ul id="answer-btns" class="btn-grid">
+                    <li>
+                        <button class="answers" onclick="selectAnswer(0, this)">answer 1</button>
+                    </li>
+                    <li>
+                        <button class="answers" onclick="selectAnswer(1, this)">answer 2</button>
+                    </li>
+                    <li>
+                        <button class="answers" onclick="selectAnswer(2, this)">answer 3</button>
+                    </li>
+                    <li>
+                        <button class="answers" onclick="selectAnswer(3, this)">answer 4</button>
+                    </li>
+                </ul>
                 <div class="controls">
                     <p id="correct" class="hide">Correct!</p>
                     <p id="wrong" class="hide">Wrong!</p>

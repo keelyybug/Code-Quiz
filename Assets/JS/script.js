@@ -1,18 +1,27 @@
 var timeEl = document.querySelector("#timer");
 var secondsLeft = 75;
 var myTimer; 
+var score = 0;
+var scoreMod = 16.667;
+
 
 function setTimer() {
+    console.log('Enter setTimer');
     var timerInterval = setInterval(function(){
-    secondsLeft--;
-    timeEl.innerHTML = secondsLeft;
-    if (secondsLeft === 0) {
-    timeEl.innerHTML = secondsLeft;
-    clearInterval(timerInterval)
-    } 
-    }, 1000);
+                            secondsLeft--;
+                            timeEl.innerHTML = 'Timer 00:' + secondsLeft;
+                            if (secondsLeft <= 0) {
+                                clearInterval(timerInterval);
+                                timeEl.innerHTML = secondsLeft;
+                                alert("Time Is Up!!");
+                            } 
+                        }, 1000);
     
 }
+//function endQuiz() {
+     //if(secondsLeft === 0)
+
+//}
 
 const questions = [
     {      //1
@@ -70,12 +79,14 @@ const questions = [
         ]
     }
 ]
-const startButton= document.querySelector('#start');
-const questionContainerEl = document.getElementById('#question-container');
-//let shuffledQuestions, currentQuestionIndex ;
-const questionEl = document.querySelector('#questions');
-const answerButtonsElement = document.querySelector('#answer-btns');
-const startWindow = document.querySelector('.first-window');
+const startButton= document.getElementById('start');
+const questionContainerEl = document.getElementById('question-container');
+let shuffledQuestions, currentQuestionIndex ;
+const questionEl = document.getElementById('questions');
+const answerButtonsElement = document.getElementById('answer-btns');
+// const startWindow = document.querySelector('.first-window'); // not working ?
+const startWindow = document.getElementsByClassName('first-window')[0]; // there is only one 'first-window'
+
 startButton.addEventListener('click', startQuiz);
 
     //currentQuestionIndex++
@@ -84,29 +95,33 @@ startButton.addEventListener('click', startQuiz);
 function startQuiz(){
     setTimer();
     console.log('started');
-    console.log(startButton);
-    startWindow.classList.add('hide');
+    console.log(startWindow);
+
+    startWindow.classList.add('hide'); // remove directions
     console.log('hidden');
-    document.getElementById('question-container').removeAttribute('hide');
+    questionContainerEl.classList.remove('hide'); // show questions
     console.log('reveal');
+
+    // document.getElementById('question-container').removeAttribute('hide');
+    
     shuffledQuestions = questions.sort(() => Math.random() -.5);
     currentQuestionIndex = 0;
     console.log('math');
     setNextQuestion();
 }
 
-function showQuestion(question) {
-    questionEl.innerText = question.question;
-    question.answers.forEach(answer => {
-        const button = document.createElement('button');
-        button.innerText = answer.text;
-        button.classList.add('btn');
-        if (answer.correct) {
-            button.dataset.correct = answer.correct;
-        }
-        button.addEventListener('click', selectAnswer);
-        answerButtonsElement.appendChild(button);
-    });
+function showQuestion(questions) {
+    // set question text
+    questionEl.innerHTML = questions['question']
+    // get answer buttons
+    var listElements = answerButtonsElement.getElementsByClassName('answers');
+    // set answers text
+    for ( i=0; i < listElements.length; i++) {
+        var itm = listElements[i];
+        var ans = questions['answers'][i]['text']
+        itm.firstChild.nodeValue = ans;
+        clearStatusClass(itm);
+    }
 }
 
 function setNextQuestion(){
@@ -117,22 +132,29 @@ function setNextQuestion(){
 }
 
 function resetState() {
-    while (answerButtonsElement.firstChild) {
-        answerButtonsElement.removeChild;
-        (answerButtonsElement.firstChild);
-    };
+    var listElements = answerButtonsElement.getElementsByClassName('item');
+        for ( i=0; i < listElements.length; i++) {
+            var itm = listElements[i];
+            itm.firstChild.nodeValue = "";
+        }
 }
 
-function selectAnswer(event) {
-    const selectButton = event.target;
-    const correct = selectButton.dataset.correct;
-    setStatusClass(document.body, correct);
-    Array.from(answerButtonsElement).forEach(button=> {
-        setStatusClass(button, button.dataset.correct);
-    });
-    if(shuffledQuestions.length > currentQuestionIndex + 1) {
-        setNextQuestion();
-    };
+function selectAnswer(index, element) {
+    var currQuest = shuffledQuestions[currentQuestionIndex];
+    var isCorrect =  currQuest['answers'][index]['correct'] == true;
+    if (currentQuestionIndex < questions.length) {
+        setStatusClass(element, isCorrect);
+        if (isCorrect) {
+            score += scoreMod;
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) { setNextQuestion(); }
+        }
+    } 
+    
+    if (currentQuestionIndex == questions.length) {
+        alert ("your Score" + Math.round(score)) //get rid of later
+        window.location = "highscores.html";
+    }
 }
 
 function setStatusClass(element, correct) {
@@ -141,6 +163,7 @@ function setStatusClass(element, correct) {
         element.classList.add('corrct');
     } else {
         element.classList.add('wrong');
+        secondsLeft -= 10;
     };
 }
 
