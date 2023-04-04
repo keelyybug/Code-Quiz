@@ -18,7 +18,7 @@
             <p id="timer">Timer: 00:00</p>
         </div>
 <!---main window--->
-        <div class="inner"> <!--inner dic where everything moves-->
+        <div class="inner"> <!--inner div where everything moves-->
 
             <header class="first-window"> <!-- first window-->
 
@@ -30,15 +30,19 @@
 
             </header>
 
-            <main class="quiz"><!--actual quiz pages-->
-            <section>
-                <h2 id="questions">Which of the following are NOT JavaScript Data types?</h2>
-                    <ul class="answer-btns">
-                    <li><button id="answer">1. String</button></li>
-                    <li><button id="answers">2. Boolean</button></li>
-                    <li><button id="answers">3. Class</button></li>
-                    <li><button id="answers">4. Object</button></li>
+            <main class="container" ><!--actual quiz pages-->
+            <section id="question-container" class="hide">
+                <h2 id="questions">questions</h2>
+                    <ul id="answer-btns" class="btn-grid">
+                    <li><button class="answers">answer 1</button></li>
+                    <li><button class="answers">answer 2</button></li>
+                    <li><button class="answers">answer 3</button></li>
+                    <li><button class="answers">answer 4</button></li>
                     </ul>
+                <div class="controls">
+                    <p id="correct" class="hide">Correct!</p>
+                    <p id="wrong" class="hide">Wrong!</p>
+                </div>
                 </section>
             </main>
         </div>
