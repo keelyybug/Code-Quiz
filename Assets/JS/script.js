@@ -10,18 +10,15 @@ function setTimer() {
     var timerInterval = setInterval(function(){
                             secondsLeft--;
                             timeEl.innerHTML = 'Timer 00:' + secondsLeft;
-                            if (secondsLeft <= 0) {
-                                clearInterval(timerInterval);
+                            if (secondsLeft <= 0) {                              
                                 timeEl.innerHTML = secondsLeft;
-                                alert("Time Is Up!!");
+                                clearInterval(timerInterval);
+                                window.localStorage.setItem('userScore', Math.round(score));
+                                quizDone();
                             } 
                         }, 1000);
     
 }
-//function endQuiz() {
-     //if(secondsLeft === 0)
-
-//}
 
 const questions = [
     {      //1
@@ -81,11 +78,14 @@ const questions = [
 ]
 const startButton= document.getElementById('start');
 const questionContainerEl = document.getElementById('question-container');
+const setUserInnitialsContainer = document.getElementById('set-score-name');
 let shuffledQuestions, currentQuestionIndex ;
 const questionEl = document.getElementById('questions');
 const answerButtonsElement = document.getElementById('answer-btns');
 // const startWindow = document.querySelector('.first-window'); // not working ?
 const startWindow = document.getElementsByClassName('first-window')[0]; // there is only one 'first-window'
+
+
 
 startButton.addEventListener('click', startQuiz);
 
@@ -119,9 +119,10 @@ function showQuestion(questions) {
     for ( i=0; i < listElements.length; i++) {
         var itm = listElements[i];
         var ans = questions['answers'][i]['text']
-        itm.firstChild.nodeValue = ans;
         clearStatusClass(itm);
+        itm.firstChild.nodeValue = ans;
     }
+        scoreMod = 16.667;
 }
 
 function setNextQuestion(){
@@ -139,6 +140,8 @@ function resetState() {
         }
 }
 
+
+
 function selectAnswer(index, element) {
     var currQuest = shuffledQuestions[currentQuestionIndex];
     var isCorrect =  currQuest['answers'][index]['correct'] == true;
@@ -152,9 +155,10 @@ function selectAnswer(index, element) {
     } 
     
     if (currentQuestionIndex == questions.length) {
-        alert ("your Score" + Math.round(score)) //get rid of later
-        window.location = "highscores.html";
+        window.localStorage.setItem('userScore', Math.round(score));
+        quizDone();
     }
+    
 }
 
 function setStatusClass(element, correct) {
@@ -164,6 +168,8 @@ function setStatusClass(element, correct) {
     } else {
         element.classList.add('wrong');
         secondsLeft -= 10;
+        scoreMod -= 3;
+        if (scoreMod < 4) {scoreMod =4;}
     };
 }
 
@@ -171,3 +177,23 @@ function clearStatusClass(element) {
     element.classList.remove('correct');
     element.classList.remove('wrong');
 }
+
+function quizDone(){
+    var btnSubmitScore = document.getElementById('submit-initials');
+    questionContainerEl.classList.add('hide');
+    setUserInnitialsContainer.classList.remove('hide');
+    var pScore = document.getElementById('preview-score');
+    var score = window.localStorage.getItem('userScore');
+    pScore.innerText = "You're final score is " + score;
+    btnSubmitScore.onclick = function(){
+        var initials = document.getElementById('input-initials');
+        var iniVal = "" +initials.value;
+        if (iniVal.length > 0) {
+            window.localStorage.setItem('userInitials', iniVal);
+            window.location = "highscores.html";
+        } else {
+            alert('Initials can not be empty');
+        }
+      };     
+}
+

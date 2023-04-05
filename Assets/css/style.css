@@ -89,3 +89,10 @@ ul{
     font-size: medium;
     color: red;
 }
+
+#submit-initials {
+        outline: none;
+        background-color: white;
+        color: var(--darkpurple);
+        font-size: 1em;
+}
